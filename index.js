@@ -108,7 +108,8 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        choices: ['Academic Free License v3.0',
+        choices: ['n/a or no license', 
+        'Academic Free License v3.0',
         'Apache license 2.0',
         'Artistic license 2.0',
         'Boost Software License 1.0',
@@ -177,7 +178,6 @@ function init() {
         .prompt(questions)
         .then((answers) => {
             console.log(answers);
-            // const quickmeContent = generateREADME(answers);
             writeToFile(answers);
         })
 }

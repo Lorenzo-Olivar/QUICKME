@@ -21,7 +21,7 @@ In order to install QUICKME, transfer the index.js & package.json files into you
 
 To use QUICKME, first go to your terminal and enter "node index.js". You will be prompted with a series of questions pertaining to the README template. Read the questions carefully and follow up by inputting your response! Pressing "ENTER" will submit the response SO BECAREFUL TO NOT USE "ENTER" UNLESS YOU ARE READY TO SUBMIT!
 
-![This is an example picture of a song that I am listing to at this very moment](https://www.google.com/url?sa=i&url=https%3A%2F%2Fgenius.com%2FClaud-soft-spot-lyrics&psig=AOvVaw03ZdOFQSEcIsRkZFfS6xMH&ust=1691793210482000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLiQq_uS04ADFQAAAAAdAAAAABAE)
+![Screenshot of the Terminal](assets/images/screenshot1.png)
 
 ## Credits
 

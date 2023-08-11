@@ -4,7 +4,7 @@
 
 ## Description
 
-QUICKME is a project that takes in user input to generate a structured and organized README with your input answers. I allows for a faster way to make professional README files by generatiing a template instead of having to type everthing out yourself.
+QUICKME is a project that takes in user input to generate a structured and organized README with your input answers. It allows for a faster way to make professional README files by generatiing a template instead of having to type everthing out yourself.
 
 ## Table of Contents (Optional)
 

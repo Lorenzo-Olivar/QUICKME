@@ -1,5 +1,7 @@
 # QUICKME
 
+[![Static Badge](https://img.shields.io/badge/License-MIT_License-%23b0e0e6)](https://choosealicense.com/licenses/mit/)
+
 ## Description
 
 QUICKME is a project that takes in user input to generate a structured and organized README with your input answers. I allows for a faster way to make professional README files by generatiing a template instead of having to type everthing out yourself.
@@ -27,7 +29,7 @@ To use QUICKME, first go to your terminal and enter "node index.js". You will be
 
 ## License
 
-MIT
+MIT License
 
 ## Questions
 

@@ -2,8 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({ projectTitle, description, installation, instructions, screenshots, credits, license, github, email }) => 
+const generateREADME = ({ projectTitle, description, installation, instructions, screenshots, credits, license, github, email, link }) => 
 `# ${projectTitle}
+
+${link}
 
 ## Description
 
@@ -109,42 +111,12 @@ const questions = [
         type: 'list',
         name: 'license',
         choices: ['n/a or no license', 
-        'Academic Free License v3.0',
-        'Apache license 2.0',
-        'Artistic license 2.0',
-        'Boost Software License 1.0',
-        'BSD 2-clause "Simplified" license',
-        'BSD 3-clause "New" or "Revised" license',
-        'BSD 3-clause Clear license',
-        'BSD 4-clause "Original" or "Old" license',
-        'BSD Zero-Clause license',
-        'Creative Commons license family',
-        'Creative Commons Zero v1.0 Universal',
-        'Creative Commons Attribution 4.0',
-        'Creative Commons Attribution Share Alike 4.0',
-        'Do What The F*ck You Want To Public License',
-        'Educational Community License v2.0',
-        'Eclipse Public License 1.0',
-        'Eclipse Public License 2.0',
-        'European Union Public License 1.1',
-        'GNU Affero General Public License v3.0',
-        'GNU General Public License family',
-        'GNU General Public License v2.0',
         'GNU General Public License v3.0',
-        'GNU Lesser General Public License family',
-        'GNU Lesser General Public License v2.1',
-        'GNU Lesser General Public License v3.0',
-        'ISC',
-        'LaTeX Project Public License v1.3c',
-        'Microsoft Public License',
-        'MIT',
+        'MIT License',
+        'Apache License 2.0',
         'Mozilla Public License 2.0',
-        'Open Software License 3.0',
-        'PostgreSQL License',
-        'SIL Open Font License 1.1',
-        'University of Illinois/NCSA Open Source License',
+        'Boost Software License 1.0',
         'The Unlicense',
-        'zLib License',
         ],
         message: `The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to https://choosealicense.com`,
     },
@@ -166,6 +138,40 @@ const questions = [
 
 // TODO: Create a function to write README file
 const writeToFile = (answers) => {
+
+    let licenseLink;
+    switch (answers.license) {
+        case 'GNU General Public License v3.0':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-GNU_General_Public_License_v3.0-%23d3ffce)](https://choosealicense.com/licenses/gpl-3.0/)`;
+            break;
+
+        case 'MIT License':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-MIT_License-%23b0e0e6)](https://choosealicense.com/licenses/mit/)`;
+            break;
+
+        case 'Apache License 2.0':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-Apache_License_2.0-%23c6e2ff)](https://choosealicense.com/licenses/apache-2.0/)`
+            break;
+
+        case 'Mozilla Public License 2.0':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-Mozilla_Public_License_2.0-%236897bb)](https://choosealicense.com/licenses/mpl-2.0/)`
+            break;
+
+        case 'Boost Software License 1.0':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-Boost_Software_License_1.0-%23e6e6fa)](https://choosealicense.com/licenses/bsl-1.0/)`
+            break;
+        
+        case 'The Unlicense':
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/License-The_Unlicense-%23fafae6)](https://choosealicense.com/licenses/unlicense/)`
+            break;
+    
+        default:
+            licenseLink = `[![Static Badge](https://img.shields.io/badge/No_License_Detected-gray?link=https%3A%2F%2Fchoosealicense.com%2Flicenses%2Fgpl-3.0%2F)](https://choosealicense.com/)`;
+            break;
+    }
+
+    answers.link = licenseLink;
+
     const quickmeContent = generateREADME(answers);
     fs.writeFile('README.md', quickmeContent, (err) =>
       err ? console.log(err) : console.log('Successfully created README.md!')
